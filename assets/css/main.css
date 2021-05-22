@@ -152,6 +152,8 @@ h1 {
 :root {
     --grid-rows: 1;
     --grid-cols: 1;
+    --background: #ededed;
+    --border: #222;
 }
 
 #main-container {
@@ -164,13 +166,23 @@ h1 {
 #grid-container {
     display: grid;
     grid-area: 2/2/3/3;
+    max-width: 500px;
+    min-height: 500px;
     grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
+
+
+/*
+    The issue with my initial grid-item and the re-sizing of the grid was the padding property. The padding was throwning
+    it out of whack, the solution to this if I want to stick with using the padding prop. I would have to restrict the size
+    that the user is allowed to use and manually style each grid layout. If I simply set a border around each grid-item (like in grid-element)
+    the re-sizing no longer becomes and issue, because there is no padding prop that will push the grid outside of the area that it was
+    given.
+*/
 
 .grid-item {
     display: flex;
     align-items: center;
-    padding: 1em;
     border: 1px solid #ddd;
     text-align: center;
 }
