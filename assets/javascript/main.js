@@ -25,14 +25,15 @@ function setGridSize() {
     if (newSize !== null) {
         newSize = parseInt(newSize);
 
-        if (newSize < 1 || newSize > 64 || isNaN(newSize)) {
+        if (newSize < 1 || newSize > 64 || Number.isNaN(newSize)) {
             alert("Enter a number from 1-64 range");
             setGridSize();
-        }
+        } else {
 
-        clearGrid();
-        makeGrid(newSize);
-        colorGrid();
+            clearGrid();
+            makeGrid(newSize);
+            colorGrid();
+        }
     }
 }
 
